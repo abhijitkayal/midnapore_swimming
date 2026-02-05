@@ -30,12 +30,30 @@ const upload = multer({ storage });
 
 // Upload API
 app.post("/api/upload", upload.single("image"), (req, res) => {
+  const host = req.get('host');
+  const protocol = req.protocol;
   res.json({
     message: "Image uploaded successfully",
-    imageUrl: `http://localhost:5000/uploads/${req.file.filename}`,
+    imageUrl: `${protocol}://${host}/uploads/${req.file.filename}`,
   });
 });
 
-app.listen(5000, () => {
-  console.log("Backend running on http://localhost:5000");
+// Health check route
+app.get("/", (req, res) => {
+  res.json({ message: "Backend API is running" });
 });
+
+app.get("/api", (req, res) => {
+  res.json({ message: "API is working" });
+});
+
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Backend running on http://localhost:${PORT}`);
+  });
+}
+
+// Export for Vercel
+export default app;
