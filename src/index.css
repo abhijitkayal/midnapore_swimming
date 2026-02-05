@@ -1,0 +1,365 @@
+@import "tailwindcss";
+@import "tailwindcss";
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 140vh;
+  background: url("./assets/KIDS_POOL/KIDS POOL/IMG20250217113936.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* inset: 0; */
+  /* background-color: #003d5b/70; */
+  overflow: hidden;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 80, 160, 0.55); /* blue tint */
+  z-index: 1;
+}
+
+/* Make sure your content stays above overlay */
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: rgba(38, 63, 127, 0.65); */
+  z-index: 1;
+}
+.hero-section .watermark-left {
+  position: absolute;
+  top: 10%;
+  left: 3%;
+  font-size: 220px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: rgba(227, 253, 59, 0.22);
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* GYM right */
+.hero-section .watermark-right {
+  position: absolute;
+  bottom: 20%;
+  right: 13%;
+  font-size: 220px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: rgba(227, 253, 59, 0.22);
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 100, 150, 0.35);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding-left: 80px;
+}
+
+.hero-title {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #ff8c00;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  /* margin: 0; */
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin-top:-230px;
+  margin-left:-7px;
+  
+}
+
+.hero-btn {
+  margin-top: 40px;
+  padding: 18px 50px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+.hero-btn:hover {
+  background-color: #ff7700;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
+}
+.wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  overflow: visible;
+  line-height: 0;
+  z-index: 10;
+}
+
+.wave-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:transparent;
+  z-index: -1;
+}
+
+.wave-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 200px;
+  transform: rotate(180deg);
+}
+
+.wave-bottom .shape-fill {
+  fill: white;
+}
+
+/* .wave-bottom {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: white;
+  clip-path: ellipse(50% 50% at 50% 100%);
+  z-index: 10;
+} */
+
+/* About Section */
+.about-section {
+  padding: 80px 80px;
+  background: white;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.about-highlight {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  padding: 10px 10px;
+  border-radius: 10px;
+  /* margin: 40px auto; */
+  margin-top: 10px;
+  max-width: 1000px;
+  text-align: left;
+  width:500px;
+}
+
+.about-highlight p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Facilities Section */
+.facilities-section {
+  padding: 80px 80px;
+  background: #f5f5f5;
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.facility-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.facility-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.facility-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.facility-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.facility-card:hover .facility-image img {
+  transform: scale(1.1);
+}
+
+.facility-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 25px 0 15px;
+}
+
+.facility-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  padding: 0 30px;
+  margin-bottom: 20px;
+}
+
+.know-more-btn {
+  padding: 12px 35px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.know-more-btn:hover {
+  background-color: #0097a7;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+    padding-left: 20px;
+  }
+  
+  .hero-content {
+    padding-left: 30px;
+  }
+  
+  .facilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-section,
+  .facilities-section {
+    padding: 50px 30px;
+  }
+}
+
+/* Gallery animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    /* background-color: #f9f9f9; */
+  }
+}
