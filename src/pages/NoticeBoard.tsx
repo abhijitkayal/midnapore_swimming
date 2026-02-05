@@ -21,19 +21,19 @@
 
 // export default NoticeBoard;
 
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 
 const NoticeBoard = () => {
-  const fileInputRef = useRef(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [uploadedUrl, setUploadedUrl] = useState("");
 
   const handleClick = () => {
     fileInputRef.current?.click();
   };
 
-  const handleFileChange = async (e) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 

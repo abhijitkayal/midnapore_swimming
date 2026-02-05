@@ -6,7 +6,22 @@ import { fileURLToPath } from "url";
 import { v2 as cloudinary } from "cloudinary";
 
 const app = express();
-app.use(cors());
+
+// Configure CORS to allow requests from your frontend
+const corsOptions = {
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174', 
+    'http://localhost:3000',
+    'https://midnapore-swimming-5thrwuwb7-abhis-projects-c39f1fd6.vercel.app',
+    'https://midnapore-swimming.vercel.app',
+    /\.vercel\.app$/ // Allow all vercel preview deployments
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Fix __dirname in ES module

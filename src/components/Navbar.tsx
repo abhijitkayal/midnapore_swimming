@@ -134,7 +134,7 @@
 //   );
 // }
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Logo from '../assets/WhatsApp Image 2026-02-05 at 7.01.43 PM.jpeg';
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";

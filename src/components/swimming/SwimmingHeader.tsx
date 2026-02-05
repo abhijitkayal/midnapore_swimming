@@ -1,4 +1,3 @@
-import { ChevronRight, Dumbbell } from "lucide-react";
 const SwimmingHeader = () => {
   return (
      <section className="relative h-130 mt-20 flex items-center overflow-hidden">
