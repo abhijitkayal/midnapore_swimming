@@ -45,7 +45,7 @@ const NoticeBoard = () => {
     formData.append("image", file);
 
     try {
-      const res = await axios.post("https://midnapore-swimming-nhgl.vercel.app/api/upload", formData);
+      const res = await axios.post("https://midnapore-swimming.vercel.app/api/upload", formData);
       setUploadedUrl(res.data.imageUrl);
       alert("Image saved successfully!");
     } catch (error) {
