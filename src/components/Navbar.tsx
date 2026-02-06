@@ -144,14 +144,14 @@ export default function Navbar() {
 
   return (
     <header className="absolute top-0 left-0 w-full z-50 bg-white">
-      <nav className="flex items-center justify-between px-4 sm:px-8 md:px-20 py-3 sm:py-4 text-white">
+      <nav className="flex items-center justify-between px-4 sm:px-8 md:px-20 md:py-1 py-1 sm:py-4 text-white">
         
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img
             src={Logo}
             alt="Logo"
-            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
+            className="md:w-15 md:h-15 w-15 h-15 sm:w-10 sm:h-10 rounded-full"
           />
         </div>
 
