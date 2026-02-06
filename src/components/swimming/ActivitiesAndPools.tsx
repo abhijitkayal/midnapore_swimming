@@ -1,4 +1,4 @@
-import { Waves, WavesArrowUpIcon, WavesIcon, WavesLadder } from "lucide-react";
+import { Waves, WavesArrowUpIcon, WavesLadder } from "lucide-react";
 
 export default function ActivitiesAndPools() {
   return (
