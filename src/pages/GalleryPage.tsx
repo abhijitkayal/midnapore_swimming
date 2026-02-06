@@ -29,7 +29,7 @@ export default function GalleryPage() {
           {images.map((src, index) => (
             <div
               key={index}
-              className="mb-4 break-inside-avoid w-100 h-50 overflow-hidden rounded-md bg-white"
+              className="mb-4 break-inside-avoid md:w-100 h-50 grid sm:grid-cols-1 sm:w-full sm:justify-center overflow-hidden rounded-md bg-white"
             >
               <img
                 src={src}
