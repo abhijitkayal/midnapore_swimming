@@ -27,7 +27,7 @@ const FacilityCard = () => {
                 </h1>
                 <div className="h-0.5 w-14 sm:w-16 md:w-20-ml-2 bg-yellow-400 mt-4 sm:mt-5 md:mt-6"></div>
               </div>
-              <p className="text-sm sm:text-base md:text-medium -ml-2 text-gray-100 leading-relaxed max-w-lg">
+              <p className="text-md sm:text-base md:text-medium -ml-2 text-gray-100 leading-relaxed max-w-lg">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
                 possimus nisi suscipit sapiente enim blanditiis odio laborum.
                 Explicabo aliquid eveniet repellat aliquam aut dolor a facilis
@@ -42,8 +42,8 @@ const FacilityCard = () => {
                   key={index}
                   className="flex items-center group cursor-default"
                 >
-                  <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-yellow-400 mr-2 sm:mr-3 shrink-0" />
-                  <span className="text-xs sm:text-sm font-medium group-hover:text-yellow-200 transition-colors">
+                  <ChevronRight className="w-2.5 h-2.5 md:w-4 md:h-4 sm:w-3 sm:h-3 text-yellow-400 mr-2 sm:mr-3 shrink-0" />
+                  <span className="text-md md:text-md sm:text-sm font-medium group-hover:text-yellow-200 transition-colors">
                     {item}
                   </span>
                 </div>
