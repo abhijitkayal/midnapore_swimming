@@ -91,7 +91,7 @@ export default function Gallery() {
   {visibleImages.map((image, index) => (
     <div
       key={image}
-      className="w-80 h-56 sm:w-140 sm:h-80 md:w-160 md:h-96 lg:w-180 lg:h-120 rounded-md overflow-hidden shadow-lg animate-fadeIn"
+      className="w-72 h-48 sm:w-120 sm:h-694 md:w-120 md:h-80 lg:w-154 lg:h-106 rounded-md overflow-hidden shadow-lg animate-fadeIn animate-fadeIn"
     >
       <img
         src={image}
