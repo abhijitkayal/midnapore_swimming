@@ -21,72 +21,99 @@
 
 // export default NoticeBoard;
 
-import { useRef, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { FileText, X } from "lucide-react";
+
+// List of PDFs in public folder
+const pdfList = [
+  {
+    id: 1,
+    name: "Introduction to Natural Language Processing",
+    path: "/Introduction-to-Natural-Language-Processing.pdf",
+    description: "Learn about NLP fundamentals"
+  },
+  {
+    id: 2,
+    name: "Introduction to Natural Language Processing (Copy)",
+    path: "/Introduction-to-Natural-Language-Processing copy.pdf",
+    description: "NLP guide and resources"
+  }
+];
 
 const NoticeBoard = () => {
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [uploadedUrl, setUploadedUrl] = useState("");
+  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
-  const handleClick = () => {
-    fileInputRef.current?.click();
+  const openPdf = (pdfPath: string) => {
+    setSelectedPdf(pdfPath);
   };
 
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    // Preview instantly
-    setSelectedImage(URL.createObjectURL(file));
-
-    // Upload to backend
-    const formData = new FormData();
-    formData.append("image", file);
-
-    try {
-      const res = await axios.post("https://midnapore-swimming.vercel.app/api/upload", formData);
-      setUploadedUrl(res.data.imageUrl);
-      alert("Image saved successfully!");
-    } catch (error) {
-      console.log(error);
-      alert("Upload failed!");
-    }
+  const closePdf = () => {
+    setSelectedPdf(null);
   };
 
   return (
-    <div className="w-full bg-[#f0faff] py-12 px-4 md:px-10 lg:px-10">
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        className="hidden"
-      />
+    <div className="w-full bg-gradient-to-br from-[#e8f4f8] to-[#f0faff] mt-10 min-h-screen py-12 px-4 md:px-10 lg:px-10">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 text-gray-800">
+          Notice Board
+        </h2>
+        <p className="text-center text-gray-600 mb-10 text-sm sm:text-base">
+          Click on any notice to view details
+        </p>
 
-      <div
-        onClick={handleClick}
-        className="max-w-7xl mx-auto h-screen bg-[#ccd5e0] overflow-hidden shadow-sm cursor-pointer flex items-center justify-center"
-      >
-        {selectedImage ? (
-          <img
-            src={selectedImage}
-            alt="Uploaded"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        ) : (
-          <h2 className="text-2xl font-bold text-slate-700">
-            Click to Upload Notice Image
-          </h2>
+        {/* PDF Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {pdfList.map((pdf) => (
+            <div
+              key={pdf.id}
+              onClick={() => openPdf(pdf.path)}
+              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2 overflow-hidden group"
+            >
+              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 p-6 flex items-center justify-center h-40">
+                <FileText className="w-20 h-20 text-white group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+                  {pdf.name}
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  {pdf.description}
+                </p>
+                <button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+                  View Notice
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* PDF Modal/Viewer */}
+        {selectedPdf && (
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center p-4">
+            <div className="bg-white rounded-lg w-full max-w-6xl h-[90vh] flex flex-col">
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b">
+                <h3 className="text-xl font-bold text-gray-800">Notice Document</h3>
+                <button
+                  onClick={closePdf}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                  <X className="w-6 h-6 text-gray-600" />
+                </button>
+              </div>
+
+              {/* PDF Viewer */}
+              <div className="flex-1 overflow-hidden">
+                <iframe
+                  src={selectedPdf}
+                  className="w-full h-full"
+                  title="PDF Viewer"
+                />
+              </div>
+            </div>
+          </div>
         )}
       </div>
-
-      {/* Show Uploaded URL */}
-      {uploadedUrl && (
-        <p className="mt-5 text-center text-green-600 font-semibold">
-          Saved URL: {uploadedUrl}
-        </p>
-      )}
     </div>
   );
 };

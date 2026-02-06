@@ -87,11 +87,11 @@ export default function Gallery() {
           </button>
 
           {/* IMAGES */}
-         <div className="flex items-start gap-2 sm:gap-3 transition-all duration-700 ease-in-out justify-center">
+         <div className="flex items-start gap-2 sm:gap-3 w-full transition-all duration-700 ease-in-out justify-center">
   {visibleImages.map((image, index) => (
     <div
       key={image}
-      className="w-72 h-48 sm:w-96 sm:h-64 md:w-120 md:h-80 lg:w-154 lg:h-106 rounded-md overflow-hidden shadow-lg animate-fadeIn"
+      className="w-80 h-56 sm:w-140 sm:h-80 md:w-160 md:h-96 lg:w-180 lg:h-120 rounded-md overflow-hidden shadow-lg animate-fadeIn"
     >
       <img
         src={image}

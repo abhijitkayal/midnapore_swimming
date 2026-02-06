@@ -1,4 +1,4 @@
-import { Waves, WavesLadder } from "lucide-react";
+import { Waves, WavesArrowUpIcon, WavesIcon, WavesLadder } from "lucide-react";
 
 export default function ActivitiesAndPools() {
   return (
@@ -12,13 +12,13 @@ export default function ActivitiesAndPools() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {/* Card 1 */}
           <div className="bg-[#4f7fc3] rounded-xl p-10 h-70 text-center text-white">
-            <div className="text-orange-400 text-4xl ">
-              <WavesLadder size={44} />
-            </div>
+           <div className="flex justify-center mb-4 text-orange-400">
+  <WavesLadder size={44} />
+</div>
+
             <h3 className="text-3xl font-bold text-black mb-4">
-              WATER
-              <br />
-              POLO
+              WATER POLO
+              
             </h3>
             <p className="text-sm leading-relaxed">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
@@ -28,8 +28,8 @@ export default function ActivitiesAndPools() {
 
           {/* Card 2 */}
           <div className="bg-[#4f7fc3] rounded-xl p-10 h-70 text-center text-white">
-            <div className="text-orange-400 text-4xl">
-              <WavesLadder size={44} />
+            <div className="text-orange-400 flex justify-center text-4xl">
+              <WavesArrowUpIcon size={44} />
             </div>
             <h3 className="text-3xl font-bold text-black mb-4">
               COMPETETIVE
@@ -44,7 +44,7 @@ export default function ActivitiesAndPools() {
 
           {/* Card 3 */}
           <div className="bg-[#4f7fc3] rounded-xl p-10 h-70 text-center text-white">
-            <div className="text-orange-400 text-4xl">
+            <div className="text-orange-400 flex justify-center text-4xl">
               <Waves size={44} />
             </div>
             <h3 className="text-3xl font-bold text-black mb-4">
@@ -70,7 +70,7 @@ export default function ActivitiesAndPools() {
             <h3 className="text-3xl font-bold text-black mb-4">
               KID'S SWIMMING POOL
             </h3>
-            <p className="text-md text-emerald-300 font-semibold">
+            <p className="text-md text-white font-semibold">
               ✔ Filtration System
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function ActivitiesAndPools() {
             <h3 className="text-3xl font-bold text-black mb-4">
               10 METER SWIMMING POOL
             </h3>
-            <p className="text-md text-emerald-300 font-semibold">
+            <p className="text-md text-white font-semibold">
               ✔ Filtration System
             </p>
           </div>
@@ -90,7 +90,7 @@ export default function ActivitiesAndPools() {
             <h3 className="text-3xl font-bold text-black mb-4">
               25 METER SWIMMING POOL
             </h3>
-            <p className="text-md text-emerald-300 font-semibold">
+            <p className="text-md text-white font-semibold">
               ✔ Filtration System
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function ActivitiesAndPools() {
             <h3 className="text-3xl font-extrabold text-black mb-4">
               50 METER SWIMMING POOL
             </h3>
-            <ul className="text-md text-emerald-300 font-semibold space-y-2">
+            <ul className="text-md text-white font-semibold space-y-2">
               <li>✔ Natural Water Without Filter</li>
               <li>✔ Diving</li>
               <li>✔ Water Polo</li>

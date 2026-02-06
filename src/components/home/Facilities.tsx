@@ -56,7 +56,7 @@ function FlipCard({ icon, title, text, frontImage, backImage }: any) {
           <div className="absolute inset-0 bg-[#4f7fbd]/80"></div>
 
           <div className="relative z-10 flex h-full flex-col justify-center p-4 sm:p-6 text-white md:p-10">
-            <div className="mb-3 sm:mb-4 flex justify-center md:ml-60">{icon}</div>
+            <div className="mb-3 sm:mb-4 flex justify-center">{icon}</div>
             <h3 className="mb-2 sm:mb-3 text-xl sm:text-2xl justify-center text-center font-semibold">{title}</h3>
             <p className="max-w-xl text-sm sm:text-md text-center px-2">{text}</p>
           </div>

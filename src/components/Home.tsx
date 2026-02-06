@@ -8,7 +8,7 @@ const Home = () => {
         <Navbar/>
         <div className="hero-content">
           <h1 className="hero-title">MIDNAPORE<br/>SWIMMING<br/>CLUB</h1>
-          <button className="hero-btn">CONTACT US</button>
+          {/* <button className="hero-btn">CONTACT US</button> */}
         </div>
         <div className="wave-bottom">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

@@ -1,7 +1,9 @@
 export const AboutUs = () => {
   return (
     <section className="w-full bg-white -px-8 py-10 sm:py-12 md:py-16">
-      <div className="mx-auto grid max-w-7xl md:max-w-8xl grid-cols-1 gap-10 sm:gap-8 md:gap-10 -px-5 sm:px-6 md:grid-cols-2 md:items-start">
+      {/* <div className="mx-auto grid max-w-7xl md:max-w-8xl grid-cols-1 gap-10 sm:gap-8 md:gap-10 -px-5 sm:px-0 md:grid-cols-2 md:items-start"> */}
+      <div className="mx-auto grid max-w-7xl md:max-w-8xl grid-cols-1 gap-10 sm:gap-8 md:gap-10 px-5 sm:px-6 md:px-6 md:grid-cols-2 md:items-start">
+
         {/* LEFT CONTENT */}
         <div>
           <h2 className="text-3xl md:-ml-2 sm:text-4xl md:text-5xl font-medium tracking-wide text-[#0b1a33]">

@@ -166,9 +166,9 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex text-xl items-center gap-8 text-sm font-medium">
-          <Link to="/"><li className="text-cyan-400 hover:text-white hover:bg-cyan-500 cursor-pointer">Home</li></Link>
+          <Link to="/"><li className="text-cyan-400 hover:text-white hover:bg-cyan-500 cursor-pointer px-2 py-2">Home</li></Link>
           <li className="relative group">
-            <div className="flex items-center gap-1 cursor-pointer text-cyan-500  hover:text-cyan-700">
+            <div className="flex items-center gap-1 cursor-pointer text-cyan-500 px-2 py-2 hover:bg-cyan-400 hover:text-white ">
               Our Facilities <ChevronDown size={18} />
             </div>
 
@@ -206,17 +206,17 @@ export default function Navbar() {
           </li>
 
           <Link to="/noticeboard">
-          <li className="cursor-pointer text-cyan-400 hover:text-white hover:bg-cyan-500">
+          <li className="cursor-pointer px-2 py-2 text-cyan-400 hover:text-white hover:bg-cyan-500">
             Notice Board
           </li>
           </Link>
           <Link to="/gallery">
-          <li className="cursor-pointer text-cyan-400 hover:text-white hover:bg-cyan-500">
+          <li className="cursor-pointer px-2 py-2 text-cyan-400 hover:text-white hover:bg-cyan-500">
             Gallery
           </li>
           </Link>
           <Link to="/contact">
-          <li className="cursor-pointer text-cyan-400 hover:text-white hover:bg-cyan-500">
+          <li className="cursor-pointer px-2 py-2 text-cyan-400 hover:text-white hover:bg-cyan-500">
             Contact
           </li>
           </Link>

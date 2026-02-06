@@ -11,7 +11,7 @@ export default function Footer() {
             <img
               src="/logo.webp"
               alt="Midnapore Swimming Club"
-              className="w-28 h-28 sm:w-40 sm:h-40 mb-4 sm:mb-5"
+              className="w-28 h-28 sm:w-40 sm:h-40 mb-4 sm:mb-5 mx-auto sm:mx-0 "
             />
 
             <p className="text-sm sm:text-base md:text-xl mb-3 sm:mb-4 leading-relaxed">
@@ -21,7 +21,9 @@ export default function Footer() {
             <p className="text-sm sm:text-base md:text-xl mb-3 sm:mb-4">Phone: 03222 297 741</p>
 
             <p className="text-sm sm:text-base md:text-xl mb-6 sm:mb-10">Email: info@midnaporeswimmingclub.org</p>
-            <p className="text-xs sm:text-sm md:text-md text-gray-600">Copyright © 2026 Midnapore Swimming Club</p>
+            <p className="hidden sm:block text-xs sm:text-sm md:text-md text-gray-600">
+  Copyright © 2026 Midnapore Swimming Club
+</p>
           </div>
 
           {/* MIDDLE: Empty spacer (matches screenshot) */}
@@ -59,9 +61,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        {/* <div className=" flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm">Copyright © 2026 Midnapore Swimming Club</p>
-        </div> */}
+        <p className="block md:hidden lg:hidden text-center text-xs sm:text-sm text-gray-600">
+  Copyright © 2026 Midnapore Swimming Club
+</p>
+
       </div>
     </footer>
   );
