@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const galleryImages = [
   "/gallery/gallery-1.webp",
   "/gallery/gallery-2.webp",
-  "/gallery/gallery-3.JPG",
+  "/gallery/gallery-3.jpg",
   "/gallery/gallery-4.jpg",
   "/gallery/gallery-5.jpg",
   "/gallery/gallery-6.jpg",
