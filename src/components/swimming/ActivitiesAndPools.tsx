@@ -344,7 +344,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/image1.jfif", "/image2.jfif"]} />
+            <ImageCarousel image={["/swim2.jpg", "/swim3.avif"]} />
           </div>
 
           {/* 10 Meter Pool */}
@@ -354,7 +354,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/image3.jfif", "/image4.jfif"]} />
+            <ImageCarousel image={["/swim4.avif", "/swim5.jpg"]} />
           </div>
 
           {/* 25 Meter Pool */}
@@ -364,7 +364,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/image5.jfif", "/image6.jfif"]} />
+            <ImageCarousel image={["/swim6.avif", "/swim7.jpg"]} />
           </div>
 
           {/* 50 Meter Pool */}
@@ -379,7 +379,7 @@ export default function ActivitiesAndPools() {
               <li>✔ Water Polo</li>
             </ul>
 
-            <ImageCarousel image={["/image3.jfif", "/image4.jfif"]} />
+            <ImageCarousel image={["/swim8.avif", "/swim4.avif"]}/>
           </div>
         </div>
       </div>
