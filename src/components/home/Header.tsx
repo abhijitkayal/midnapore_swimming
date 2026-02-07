@@ -62,9 +62,9 @@ import '../../index.css'
 const Header = () => {
   return (
     <div>
-       <section className="hero-section">
+       <section className="hero-section ">
         <div className="hero-overlay"></div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <div className="watermark-left">FITNESS</div>
   <div className="watermark-right">GYM</div>
         <div className="hero-content">

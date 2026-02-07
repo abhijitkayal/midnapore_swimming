@@ -52,7 +52,7 @@ const NoticeBoard = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-br from-[#e8f4f8] to-[#f0faff] mt-10 min-h-screen py-12 px-4 md:px-10 lg:px-10">
+    <div className="w-full bg-gradient-to-br from-[#e8f4f8] to-[#f0faff] mt-20 min-h-screen py-12 px-4 md:px-10 lg:px-10">
       <div className="max-w-7xl md:px-10 ">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 text-gray-800">
           Notice Board
