@@ -1,96 +1,147 @@
-import express from "express";
-import cors from "cors";
-import multer from "multer";
-import path from "path";
-import { fileURLToPath } from "url";
-import { v2 as cloudinary } from "cloudinary";
+// import express from "express";
+// import cors from "cors";
+// import multer from "multer";
+// import path from "path";
+// import { fileURLToPath } from "url";
+// import { v2 as cloudinary } from "cloudinary";
+
+// const app = express();
+
+// // Configure CORS to allow requests from your frontend
+// const corsOptions = {
+//   origin: [
+//     'http://localhost:5173',
+//     'http://localhost:5174', 
+//     'http://localhost:3000',
+//     'https://midnapore-swimming-5thrwuwb7-abhis-projects-c39f1fd6.vercel.app',
+//     'https://midnapore-swimming.vercel.app',
+//     /\.vercel\.app$/ // Allow all vercel preview deployments
+//   ],
+//   credentials: true,
+//   optionsSuccessStatus: 200
+// };
+
+// app.use(cors(corsOptions));
+// app.use(express.json());
+
+// // Fix __dirname in ES module
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+
+// // Configure Cloudinary
+// cloudinary.config({
+//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "your_cloud_name",
+//   api_key: process.env.CLOUDINARY_API_KEY || "your_api_key",
+//   api_secret: process.env.CLOUDINARY_API_SECRET || "your_api_secret"
+// });
+
+// // Serve uploaded files (fallback for local)
+// app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
+
+// // Multer storage config (for temporary storage before Cloudinary upload)
+// const storage = multer.memoryStorage(); // Use memory storage for Cloudinary
+// const upload = multer({ storage });
+
+// // Upload API with Cloudinary
+// app.post("/api/upload", upload.single("image"), async (req, res) => {
+//   try {
+//     if (!req.file) {
+//       return res.status(400).json({ error: "No file uploaded" });
+//     }
+
+//     // Upload to Cloudinary
+//     const result = await new Promise((resolve, reject) => {
+//       const uploadStream = cloudinary.uploader.upload_stream(
+//         {
+//           folder: "swimming-club-notices",
+//           resource_type: "auto"
+//         },
+//         (error, result) => {
+//           if (error) reject(error);
+//           else resolve(result);
+//         }
+//       );
+//       uploadStream.end(req.file.buffer);
+//     });
+
+//     res.json({
+//       message: "Image uploaded successfully",
+//       imageUrl: result.secure_url,
+//       publicId: result.public_id
+//     });
+//   } catch (error) {
+//     console.error("Upload error:", error);
+//     res.status(500).json({ error: "Upload failed", details: error.message });
+//   }
+// });
+
+// // Health check route
+// app.get("/", (req, res) => {
+//   res.json({ message: "Backend API is running" });
+// });
+
+// app.get("/api", (req, res) => {
+//   res.json({ message: "API is working" });
+// });
+
+// // For local development
+// if (process.env.NODE_ENV !== 'production') {
+//   const PORT = process.env.PORT || 5000;
+//   app.listen(PORT, () => {
+//     console.log(`Backend running on http://localhost:${PORT}`);
+//   });
+// }
+
+// // Export for Vercel
+// export default app;
+
+
+// const express = require("express");
+import express from 'express';
+// const nodemailer = require("nodemailer");
+import nodemailer from 'nodemailer';
+// const cors = require("cors");
+import cors from 'cors';
 
 const app = express();
 
-// Configure CORS to allow requests from your frontend
-const corsOptions = {
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:5174', 
-    'http://localhost:3000',
-    'https://midnapore-swimming-5thrwuwb7-abhis-projects-c39f1fd6.vercel.app',
-    'https://midnapore-swimming.vercel.app',
-    /\.vercel\.app$/ // Allow all vercel preview deployments
-  ],
-  credentials: true,
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
-// Fix __dirname in ES module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+app.post("/send-email", async (req, res) => {
+  const { name, email, phone, message } = req.body;
 
-// Configure Cloudinary
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "your_cloud_name",
-  api_key: process.env.CLOUDINARY_API_KEY || "your_api_key",
-  api_secret: process.env.CLOUDINARY_API_SECRET || "your_api_secret"
-});
-
-// Serve uploaded files (fallback for local)
-app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
-
-// Multer storage config (for temporary storage before Cloudinary upload)
-const storage = multer.memoryStorage(); // Use memory storage for Cloudinary
-const upload = multer({ storage });
-
-// Upload API with Cloudinary
-app.post("/api/upload", upload.single("image"), async (req, res) => {
   try {
-    if (!req.file) {
-      return res.status(400).json({ error: "No file uploaded" });
-    }
-
-    // Upload to Cloudinary
-    const result = await new Promise((resolve, reject) => {
-      const uploadStream = cloudinary.uploader.upload_stream(
-        {
-          folder: "swimming-club-notices",
-          resource_type: "auto"
-        },
-        (error, result) => {
-          if (error) reject(error);
-          else resolve(result);
-        }
-      );
-      uploadStream.end(req.file.buffer);
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "kayalabhi04@gmail.com",
+        pass: "jzdwcsrquixkekyf",
+      },
     });
 
-    res.json({
-      message: "Image uploaded successfully",
-      imageUrl: result.secure_url,
-      publicId: result.public_id
-    });
+    const mailOptions = {
+      from: email,
+      to: "kayalabhi04@gmail.com",
+      subject: "New Contact Message",
+      html: `
+        <h2>Contact Form Message</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Message:</b> ${message}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.json({ success: true, message: "Email sent successfully" });
   } catch (error) {
-    console.error("Upload error:", error);
-    res.status(500).json({ error: "Upload failed", details: error.message });
+    console.log(error);
+    res.status(500).json({ success: false });
   }
 });
 
-// Health check route
-app.get("/", (req, res) => {
-  res.json({ message: "Backend API is running" });
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
 });
-
-app.get("/api", (req, res) => {
-  res.json({ message: "API is working" });
-});
-
-// For local development
-if (process.env.NODE_ENV !== 'production') {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`Backend running on http://localhost:${PORT}`);
-  });
-}
-
-// Export for Vercel
-export default app;

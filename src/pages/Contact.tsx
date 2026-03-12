@@ -211,8 +211,40 @@
 // }
 import { Phone, MapPin, Mail } from "lucide-react";
 import Navbar from "../components/Navbar";
+import axios from "axios";
+import { useState } from "react";
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post("http://localhost:5000/send-email", form);
+
+      alert("Message sent successfully!");
+
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+
+    } catch (error) {
+      alert("Failed to send message");
+    }
+  }
   return (
     <>
       <Navbar />
@@ -250,58 +282,52 @@ export default function Contact() {
                 Send Us a Message
               </h2>
 
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Your name"
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                  />
-                </div>
+             <form onSubmit={handleSubmit} className="space-y-4">
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="you@example.com"
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                  />
-                </div>
+<input
+type="text"
+name="name"
+value={form.name}
+onChange={handleChange}
+placeholder="Your name"
+className="mt-1 w-full rounded-md border px-3 py-2"
+/>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Your phone number"
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                  />
-                </div>
+<input
+type="email"
+name="email"
+value={form.email}
+onChange={handleChange}
+placeholder="you@example.com"
+className="mt-1 w-full rounded-md border px-3 py-2"
+/>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Write your message here..."
-                    className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                  />
-                </div>
+<input
+type="tel"
+name="phone"
+value={form.phone}
+onChange={handleChange}
+placeholder="Phone number"
+className="mt-1 w-full rounded-md border px-3 py-2"
+/>
 
-                <button
-                  type="submit"
-                  className="w-full rounded-md bg-cyan-700 px-4 py-2 text-white transition hover:bg-cyan-800"
-                >
-                  Submit Message
-                </button>
-              </form>
+<textarea
+rows={4}
+name="message"
+value={form.message}
+onChange={handleChange}
+placeholder="Write message"
+className="mt-1 w-full rounded-md border px-3 py-2"
+/>
+
+<button
+type="submit"
+className="w-full bg-cyan-700 text-white py-2 rounded"
+>
+Submit Message
+</button>
+
+</form>
             </div>
 
             {/* Map */}
