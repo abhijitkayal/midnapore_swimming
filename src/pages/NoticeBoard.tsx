@@ -21,98 +21,86 @@
 
 // export default NoticeBoard;
 
-import { useState } from "react";
-import { FileText, X } from "lucide-react";
+import { FileText } from "lucide-react";
+import { Link, useParams } from "react-router-dom";
 
 // List of PDFs in public folder
 const pdfList = [
   {
     id: 1,
-    name: "Introduction to Natural Language Processing",
+    name: "Notice 1",
     path: "/Introduction-to-Natural-Language-Processing.pdf",
-    description: "Learn about NLP fundamentals"
+    description: "General notice update"
   },
   {
     id: 2,
-    name: "Introduction to Natural Language Processing (Copy)",
+    name: "Notice 2",
     path: "/Introduction-to-Natural-Language-Processing copy.pdf",
-    description: "NLP guide and resources"
-  }
+    description: "Important member information"
+  },
+  {
+    id: 3,
+    name: "Notice 3",
+    path: "/Introduction-to-Natural-Language-Processing copy 2.pdf",
+    description: "Latest club announcement"
+  },
 ];
 
 const NoticeBoard = () => {
-  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
-
-  const openPdf = (pdfPath: string) => {
-    setSelectedPdf(pdfPath);
-  };
-
-  const closePdf = () => {
-    setSelectedPdf(null);
-  };
+  const { tabId } = useParams();
+  const selectedId = Number(tabId) >= 1 && Number(tabId) <= 3 ? Number(tabId) : 1;
+  const selectedNotice = pdfList.find((item) => item.id === selectedId) ?? pdfList[0];
 
   return (
-    <div className="w-full bg-gradient-to-br from-[#e8f4f8] to-[#f0faff] mt-20 min-h-screen py-12 px-4 md:px-10 lg:px-10">
-      <div className="max-w-7xl md:px-10 ">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 text-gray-800">
+    <div className="w-full bg-linear-to-br from-[#e8f4f8] to-[#f0faff] mt-20 min-h-screen py-12 px-4 md:px-10 lg:px-10">
+      <div className="max-w-7xl mx-auto md:px-10">
+        {/* <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 text-gray-800">
           Notice Board
         </h2>
-        <p className="text-center text-gray-600 mb-10 text-sm sm:text-base">
-          Click on any notice to view details
-        </p>
+        <p className="text-center text-gray-600 mb-8 text-sm sm:text-base">
+          Select a notice tab. The notice opens directly below.
+        </p> */}
 
-        {/* PDF Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {/* Tabs */}
+        {/* <div className="mb-8 flex flex-wrap justify-center gap-3">
           {pdfList.map((pdf) => (
-            <div
+            <Link
               key={pdf.id}
-              onClick={() => openPdf(pdf.path)}
-              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2 overflow-hidden group"
+              to={`/noticeboard/${pdf.id}`}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                selectedId === pdf.id
+                  ? "bg-cyan-600 text-white"
+                  : "bg-white text-cyan-700 hover:bg-cyan-50"
+              }`}
             >
-              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 p-6 flex items-center justify-center h-40">
-                <FileText className="w-20 h-20 text-white group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
-                  {pdf.name}
-                </h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  {pdf.description}
-                </p>
-                <button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
-                  View Notice
-                </button>
-              </div>
-            </div>
+              {pdf.name}
+            </Link>
           ))}
-        </div>
+        </div> */}
 
-        {/* PDF Modal/Viewer */}
-        {selectedPdf && (
-          <div className="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center p-4">
-            <div className="bg-white rounded-lg w-full max-w-6xl h-[90vh] flex flex-col">
-              {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b">
-                <h3 className="text-xl font-bold text-gray-800">Notice Document</h3>
-                <button
-                  onClick={closePdf}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                >
-                  <X className="w-6 h-6 text-gray-600" />
-                </button>
-              </div>
-
-              {/* PDF Viewer */}
-              <div className="flex-1 overflow-hidden">
-                <iframe
-                  src={selectedPdf}
-                  className="w-full h-full"
-                  title="PDF Viewer"
-                />
-              </div>
-            </div>
+        {/* Selected Notice Card */}
+        {/* <div className="mx-auto max-w-3xl bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="bg-linear-to-br from-cyan-500 to-blue-600 p-6 flex items-center justify-center h-40">
+            <FileText className="w-20 h-20 text-white" />
           </div>
-        )}
+          <div className="p-6 text-center">
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">{selectedNotice.name}</h3>
+            <p className="text-sm text-gray-600 mb-6">{selectedNotice.description}</p>
+            <p className="text-cyan-700 font-medium">Scroll down to read this notice.</p>
+          </div>
+        </div> */}
+
+        {/* Inline PDF Viewer */}
+        <div className="mt-8 bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="px-6 py-4 border-b bg-cyan-50">
+            <h3 className="text-lg font-bold text-gray-800">{selectedNotice.name}</h3>
+          </div>
+          <iframe
+            src={selectedNotice.path}
+            className="w-full h-300"
+            title={`${selectedNotice.name} PDF`}
+          />
+        </div>
       </div>
     </div>
   );

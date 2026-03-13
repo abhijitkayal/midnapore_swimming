@@ -141,6 +141,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [facilitiesOpen, setFacilitiesOpen] = useState(false);
+  const [mobileNoticeOpen, setMobileNoticeOpen] = useState(false);
 
   return (
     <header className="absolute top-0 left-0 w-full z-50 bg-transparent">
@@ -165,10 +166,10 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex text-xl items-center gap-8 text-sm font-medium">
-          <Link to="/"><li className="text-black hover:text-white hover:bg-cyan-500 cursor-pointer px-2 py-2">Home</li></Link>
+        <ul className="hidden md:flex items-center gap-8 text-xl font-medium">
+          <Link to="/"><li className="text-orange-400 hover:text-yellow-200 hover:bg-cyan-500 cursor-pointer px-2 py-2">Home</li></Link>
           <li className="relative group">
-            <div className="flex items-center gap-1 cursor-pointer text-black px-2 py-2 hover:bg-cyan-400 hover:text-white ">
+            <div className="flex items-center gap-1 cursor-pointer text-orange-400 px-2 py-2 hover:bg-cyan-400 hover:text-yellow-200 ">
               Our Facilities <ChevronDown size={18} />
             </div>
 
@@ -191,7 +192,7 @@ export default function Navbar() {
             >
               <Link
                 to="/swimming"
-                className="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600"
+                className="block px-4 py-3 text-orange-400 hover:bg-cyan-50 hover:text-cyan-600"
               >
                 Swimming Pool
               </Link>
@@ -205,18 +206,55 @@ export default function Navbar() {
             </div>
           </li>
 
-          <Link to="/noticeboard">
-          <li className="cursor-pointer px-2 py-2 text-black hover:text-white hover:bg-cyan-500">
-            Notice Board
+          <li className="relative group">
+            <div className="flex items-center gap-1 cursor-pointer px-2 py-2 text-orange-400 hover:text-yellow-200 hover:bg-cyan-500">
+              Notice Board <ChevronDown size={18} />
+            </div>
+
+            <div
+              className="
+                absolute left-0 top-full mt-3
+                w-44
+                rounded-lg
+                bg-white
+                shadow-lg
+                border
+                z-50
+                opacity-0
+                invisible
+                group-hover:opacity-100
+                group-hover:visible
+                transition-all
+                duration-200
+              "
+            >
+              <Link
+                to="/noticeboard/1"
+                className="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600"
+              >
+                Notice 1
+              </Link>
+              <Link
+                to="/noticeboard/2"
+                className="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600"
+              >
+                Notice 2
+              </Link>
+              <Link
+                to="/noticeboard/3"
+                className="block px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600"
+              >
+                Notice 3
+              </Link>
+            </div>
           </li>
-          </Link>
           <Link to="/gallery">
-          <li className="cursor-pointer px-2 py-2 text-black hover:text-white hover:bg-cyan-500">
+          <li className="cursor-pointer px-2 py-2 text-orange-400 hover:text-yellow-200 hover:bg-cyan-500">
             Gallery
           </li>
           </Link>
           <Link to="/contact">
-          <li className="cursor-pointer px-2 py-2 text-black hover:text-white hover:bg-cyan-500">
+          <li className="cursor-pointer px-2 py-2 text-orange-400 hover:text-yellow-200 hover:bg-cyan-500">
             Contact
           </li>
           </Link>
@@ -249,9 +287,28 @@ export default function Navbar() {
                 )}
               </li>
 
-              <Link to="/noticeboard" onClick={() => setMobileMenuOpen(false)}>
-                <li className="cursor-pointer text-cyan-400 py-2">Notice Board</li>
-              </Link>
+              <li>
+                <button
+                  onClick={() => setMobileNoticeOpen(!mobileNoticeOpen)}
+                  className="flex items-center justify-between w-full text-cyan-500 py-2"
+                  type="button"
+                >
+                  Notice Board <ChevronDown size={18} className={`transition-transform ${mobileNoticeOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileNoticeOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    <Link to="/noticeboard/1" onClick={() => setMobileMenuOpen(false)}>
+                      <div className="text-gray-700 py-2">Notice 1</div>
+                    </Link>
+                    <Link to="/noticeboard/2" onClick={() => setMobileMenuOpen(false)}>
+                      <div className="text-gray-700 py-2">Notice 2</div>
+                    </Link>
+                    <Link to="/noticeboard/3" onClick={() => setMobileMenuOpen(false)}>
+                      <div className="text-gray-700 py-2">Notice 3</div>
+                    </Link>
+                  </div>
+                )}
+              </li>
               
               <Link to="/gallery" onClick={() => setMobileMenuOpen(false)}>
                 <li className="cursor-pointer text-cyan-400 py-2">Gallery</li>

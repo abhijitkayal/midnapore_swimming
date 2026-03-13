@@ -237,7 +237,15 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-function ImageCarousel({ image }: { image: string[] }) {
+function ImageCarousel({
+  image,
+  width = 320,
+  height = 220,
+}: {
+  image: string[];
+  width?: number;
+  height?: number;
+}) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -252,7 +260,8 @@ function ImageCarousel({ image }: { image: string[] }) {
       <img
         src={image[index]}
         alt="pool"
-        className="w-30 h-30 aspect-square object-cover rounded-lg mx-auto block"
+        className="object-cover rounded-lg mx-auto block"
+        style={{ width, height }}
       />
 
       <button
@@ -344,7 +353,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/swim2.jpg", "/swim3.avif"]} />
+            <ImageCarousel image={["/swim2.jpg", "/swim3.avif"]} width={420} height={260} />
           </div>
 
           {/* 10 Meter Pool */}
@@ -354,7 +363,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/swim4.avif", "/swim5.jpg"]} />
+            <ImageCarousel image={["/swim4.avif", "/swim5.jpg"]} width={420} height={260} />
           </div>
 
           {/* 25 Meter Pool */}
@@ -364,7 +373,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/swim6.avif", "/swim7.jpg"]} />
+            <ImageCarousel image={["/swim6.avif", "/swim7.jpg"]} width={420} height={260}/>
           </div>
 
           {/* 50 Meter Pool */}
@@ -379,7 +388,7 @@ export default function ActivitiesAndPools() {
               <li>✔ Water Polo</li>
             </ul>
 
-            <ImageCarousel image={["/swim8.avif", "/swim4.avif"]}/>
+            <ImageCarousel image={["/swim8.avif", "/swim4.avif"]} width={420} height={260}/>
           </div>
         </div>
       </div>

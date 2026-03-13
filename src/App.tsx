@@ -21,6 +21,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/noticeboard" element={<NoticeBoard />} />
+        <Route path="/noticeboard/:tabId" element={<NoticeBoard />} />
       </Routes>
       <Footer />
     </>

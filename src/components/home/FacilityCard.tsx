@@ -17,7 +17,14 @@ const FacilityCard = () => {
   return (
     <div className="w-full">
       {/* --- Section 1: Top Notch Equipments (The List) --- */}
-      <section className="bg-[#5a84c3] py-10 sm:py-12 md:py-16 text-white">
+      <section
+        className="relative py-10 sm:py-12 md:py-16 text-white overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(38, 90, 160, 0.50), rgba(38, 90, 160, 0.50)), url('/pool.webp')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="container mx-auto max-w-8xl px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-40 items-start">
             <div className="space-y-4 sm:space-y-6">

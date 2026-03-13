@@ -8,7 +8,13 @@ import {
 } from "lucide-react";
 
 /* ---------- Image Carousel ---------- */
-function ImageCarousel({ image }: { image: string[] }) {
+function ImageCarousel({
+  image,
+  imageSizeClass = "w-[320px] h-[220px]",
+}: {
+  image: string[];
+  imageSizeClass?: string;
+}) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -23,13 +29,15 @@ function ImageCarousel({ image }: { image: string[] }) {
       <img
         src={image[index]}
         alt="pool"
-        className="w-30 h-30 aspect-square object-cover rounded-lg mx-auto block"
+        className={`object-cover rounded-lg mx-auto block ${imageSizeClass}`}
       />
 
       <button
         onClick={() =>
           setIndex(index === 0 ? image.length - 1 : index - 1)
         }
+        title="Previous image"
+        aria-label="Previous image"
         className="absolute left-2 top-1/2 -translate-y-1/2 p-1 rounded-full shadow"
       >
         <ChevronLeft size={18} />
@@ -37,6 +45,8 @@ function ImageCarousel({ image }: { image: string[] }) {
 
       <button
         onClick={() => setIndex((index + 1) % image.length)}
+        title="Next image"
+        aria-label="Next image"
         className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full shadow"
       >
         <ChevronRight size={18} />
@@ -83,10 +93,12 @@ function PoolCard({
   images,
   title,
   children,
+  imageSizeClass,
 }: {
   images: string[];
   title: string;
   children: React.ReactNode;
+  imageSizeClass?: string;
 }) {
   return (
     <div className="bg-[#4f7fc3] rounded-xl p-8 text-center text-white">
@@ -94,7 +106,7 @@ function PoolCard({
       <h3 className="text-3xl font-bold text-black mb-4">{title}</h3>
       {children}
 
-      <ImageCarousel image={images} />
+      <ImageCarousel image={images} imageSizeClass={imageSizeClass} />
     </div>
   );
 }
@@ -146,6 +158,7 @@ export default function GymCatagories() {
           <PoolCard
             title="Ladies GYM"
             images={["/gallery/gallery-17.jpeg", "/gallery/gallery-18.jpeg"]}
+            imageSizeClass="w-[420px] h-[260px]"
           >
             <p className="text-md font-semibold">✔ Evening</p>
             <p className="text-md font-semibold">✔ Night</p>
@@ -154,6 +167,7 @@ export default function GymCatagories() {
           <PoolCard
             title="Gents GYM"
             images={["/MSC_gym_men/img1.jpeg", "/MSC_gym_men/img2.jpeg"]}
+            imageSizeClass="w-[420px] h-[260px]"
           >
             <ul className="text-md font-semibold space-y-2">
               <li>✔ Morning</li>
