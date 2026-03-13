@@ -231,7 +231,7 @@ export default function Contact() {
 
     try {
       const apiUrl = import.meta.env.VITE_BACKEND_URL || "";
-      await axios.post(`${apiUrl}/api/send-email`, form);
+      await axios.post("https://midnapore-swimming-nine.vercel.app/api/send-email", form);
 
       alert("Message sent successfully!");
 
