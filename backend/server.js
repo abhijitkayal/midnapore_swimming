@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
@@ -41,10 +42,10 @@ app.get("/api", (_req, res) => {
 app.post("/api/send-email", async (req, res) => {
   const { name, email, phone, message } = req.body ?? {};
 
-  if (!name || !email || !message) {
+  if (!name || !email) {
     return res.status(400).json({
       success: false,
-      error: "name, email and message are required",
+      error: "name and email are required",
     });
   }
 
@@ -78,7 +79,7 @@ app.post("/api/send-email", async (req, res) => {
         <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${email}</p>
         <p><b>Phone:</b> ${phone || "N/A"}</p>
-        <p><b>Message:</b> ${message}</p>
+        <p><b>Message:</b> ${message || "N/A"}</p>
       `,
     };
 
