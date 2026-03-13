@@ -50,7 +50,7 @@ function FlipCard({ icon, title, text, frontImage, backImage }: any) {
       >
         {/* FRONT */}
         <div
-          className="absolute inset-0 bg-cover bg-center fixed backface-hidden"
+          className="absolute inset-0 bg-cover bg-center backface-hidden"
           style={{ backgroundImage: `url(${frontImage})` }}
         >
           <div className="absolute inset-0 bg-[#4f7fbd]/80"></div>
