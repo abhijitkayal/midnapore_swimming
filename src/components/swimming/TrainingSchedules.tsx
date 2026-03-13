@@ -5,7 +5,7 @@ const Card = ({ title, subtitle, times, image, height = "h-[420px]" }: any) => {
       style={{ backgroundImage: `url(${image})` }}
     >
       {/* overlay */}
-      <div className="absolute inset-0 bg-blue-900/70" />
+      <div className="absolute inset-0 bg-blue-400/70" />
 
       {/* content */}
       <div className="relative z-10 p-6 text-white">

@@ -249,11 +249,11 @@ export default function Contact() {
   return (
     <>
       <Navbar />
-      <section className="w-full bg-[#e9f7f9] py-20">
+      <section className="w-full py-20">
         <div className="mx-auto max-w-7xl px-4">
           
           {/* Contact Info */}
-          <div className="mb-6 space-y-3 text-sm text-cyan-700">
+          {/* <div className="mb-6 space-y-3 text-sm text-cyan-700">
             <div className="flex items-center gap-2 text-xl">
               <Phone size={20} className="text-black" />
               <span>Call Us: 03222 297 741</span>
@@ -272,53 +272,53 @@ export default function Contact() {
             </div>
 
             <div className="mt-4 h-px w-full bg-cyan-200" />
-          </div>
+          </div> */}
 
           {/* FORM on top, MAP below */}
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-6 mt-10">
             
             {/* Contact Form */}
-            <div className="rounded-md bg-white p-6 shadow-md">
-              <h2 className="mb-4 text-2xl font-semibold text-cyan-800">
+            <div className="rounded-md bg-white ">
+              {/* <h2 className="mb-4 text-2xl font-semibold text-cyan-800">
                 Send Us a Message
-              </h2>
+              </h2> */}
 
              <form onSubmit={handleSubmit} className="space-y-4">
-
+<label>YOUR NAME</label>
 <input
 type="text"
 name="name"
 value={form.name}
 onChange={handleChange}
-placeholder="Your name"
-className="mt-1 w-full rounded-md border px-3 py-2"
+placeholder=""
+className="mt-1 w-full border border-gray-300 px-3 py-2 bg-gray-100"
 />
-
+<label>EMAIL</label>
 <input
 type="email"
 name="email"
 value={form.email}
 onChange={handleChange}
-placeholder="you@example.com"
-className="mt-1 w-full rounded-md border px-3 py-2"
+placeholder=""
+className="mt-1 w-full bg-gray-100 border border-gray-300 px-3 py-2"
 />
-
+<label>SUBJECT</label>
 <input
 type="tel"
 name="phone"
 value={form.phone}
 onChange={handleChange}
-placeholder="Phone number"
-className="mt-1 w-full rounded-md border px-3 py-2"
+placeholder=""
+className="mt-1 w-full bg-gray-100 border border-gray-300 px-3 py-2"
 />
-
+<label>YOUR MESSAGE(OPTIONAL)</label>
 <textarea
 rows={4}
 name="message"
 value={form.message}
 onChange={handleChange}
-placeholder="Write message"
-className="mt-1 w-full rounded-md border px-3 py-2"
+placeholder=""
+className="mt-1 w-full bg-gray-100 border border-gray-300 px-3 py-2"
 />
 
 <button

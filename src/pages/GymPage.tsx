@@ -9,7 +9,7 @@ const GymPage = () => {
   return (
     <>
       <GymHeader />
-      <Activities />
+      {/* <Activities /> */}
       <GymCatagories/>
       <GymTraining />
       <RequiredDocs />

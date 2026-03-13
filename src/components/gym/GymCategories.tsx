@@ -154,11 +154,11 @@ export default function GymCatagories() {
           OUR GYM CATEGORIES
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-10">
           <PoolCard
             title="Ladies GYM"
             images={["/gallery/gallery-17.jpeg", "/gallery/gallery-18.jpeg"]}
-            imageSizeClass="w-[420px] h-[260px]"
+            imageSizeClass="w-[900px] h-[660px]"
           >
             <p className="text-md font-semibold">✔ Evening</p>
             <p className="text-md font-semibold">✔ Night</p>
@@ -167,7 +167,7 @@ export default function GymCatagories() {
           <PoolCard
             title="Gents GYM"
             images={["/MSC_gym_men/img1.jpeg", "/MSC_gym_men/img2.jpeg"]}
-            imageSizeClass="w-[420px] h-[260px]"
+            imageSizeClass="w-[900px] h-[660px]"
           >
             <ul className="text-md font-semibold space-y-2">
               <li>✔ Morning</li>

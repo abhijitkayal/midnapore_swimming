@@ -345,7 +345,7 @@ export default function ActivitiesAndPools() {
           OUR SWIMMING POOL CATEGORIES
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-10">
           {/* Kids Pool */}
           <div className="bg-[#4f7fc3] rounded-xl p-8 text-center text-white">
             <h3 className="text-3xl font-bold text-black mb-4">
@@ -353,7 +353,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/swim2.jpg", "/swim3.avif"]} width={420} height={260} />
+            <ImageCarousel image={["/swim2.jpg", "/swim3.avif"]} width={900} height={660} />
           </div>
 
           {/* 10 Meter Pool */}
@@ -363,7 +363,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/swim4.avif", "/swim5.jpg"]} width={420} height={260} />
+            <ImageCarousel image={["/swim4.avif", "/swim5.jpg"]} width={900} height={660} />
           </div>
 
           {/* 25 Meter Pool */}
@@ -373,7 +373,7 @@ export default function ActivitiesAndPools() {
             </h3>
             <p className="text-md font-semibold mb-4">✔ Filtration System</p>
 
-            <ImageCarousel image={["/swim6.avif", "/swim7.jpg"]} width={420} height={260}/>
+            <ImageCarousel image={["/swim6.avif", "/swim7.jpg"]} width={900} height={660}/>
           </div>
 
           {/* 50 Meter Pool */}
@@ -388,7 +388,7 @@ export default function ActivitiesAndPools() {
               <li>✔ Water Polo</li>
             </ul>
 
-            <ImageCarousel image={["/swim8.avif", "/swim4.avif"]} width={420} height={260}/>
+            <ImageCarousel image={["/swim8.avif", "/swim4.avif"]} width={900} height={660}/>
           </div>
         </div>
       </div>

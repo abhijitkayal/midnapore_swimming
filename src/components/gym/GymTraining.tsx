@@ -15,7 +15,7 @@ const Card = ({
       style={{ backgroundImage: `url(${image})` }}
     >
       {/* Blue overlay */}
-      <div className="absolute inset-0 bg-blue-700/70" />
+      <div className="absolute inset-0 bg-blue-300/70" />
 
       {/* Content */}
       <div className="relative z-10 h-full p-8 text-white flex flex-col">

@@ -51,7 +51,7 @@ const NoticeBoard = () => {
   const selectedNotice = pdfList.find((item) => item.id === selectedId) ?? pdfList[0];
 
   return (
-    <div className="w-full bg-linear-to-br from-[#e8f4f8] to-[#f0faff] mt-20 min-h-screen py-12 px-4 md:px-10 lg:px-10">
+    <div className="w-full bg-linear-to-br bg-[#e8f4f8]  min-h-screen py-12 px-4 md:px-10 lg:px-10">
       <div className="max-w-7xl mx-auto md:px-10">
         {/* <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 text-gray-800">
           Notice Board
@@ -90,7 +90,7 @@ const NoticeBoard = () => {
         </div> */}
 
         {/* Inline PDF Viewer */}
-        <div className="mt-8 bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="mt-20 bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="px-6 py-4 border-b bg-cyan-50">
             <h3 className="text-lg font-bold text-gray-800">{selectedNotice.name}</h3>
           </div>

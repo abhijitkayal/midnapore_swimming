@@ -152,7 +152,7 @@ export default function Navbar() {
           <img
             src={Logo}
             alt="Logo"
-            className="md:w-15 md:h-15 w-15 h-15 sm:w-10 sm:h-10 rounded-full"
+            className="md:w-20 md:h-20 w-15 h-15 sm:w-10 sm:h-10 rounded-full"
           />
         </div>
 

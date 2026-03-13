@@ -1,13 +1,13 @@
 const SwimmingHeader = () => {
   return (
-     <section className="relative h-130 mt-20 flex items-center overflow-hidden">
+     <section className="relative h-150 flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{
             backgroundImage: `linear-gradient(rgba(38, 63, 127, 0.65), rgba(38, 63, 127, 0.65)), url('/bg1.webp')`,
           }}
         ></div>
-        <div className="container max-w-8xl lg:max-w-8xl mx-auto relative z-10 py-20">
+        <div className="container max-w-8xl lg:max-w-8xl mx-auto relative z-10 mt-30 py-20">
           {/* Background */}
           {/* <div className="absolute inset-0 bg-linear-to-l from-blue-900/80 to-transparent z-10" /> */}
 
@@ -34,7 +34,7 @@ const SwimmingHeader = () => {
                     </h3>
                   </div>
                   <div className="flex-1 pt-2 border-t border-gray-500/50">
-                    <p className="text-white text-2xl leading-relaxed ml-15">
+                    <p className="text-white text-2xl leading-relaxed -mr-20 ml-30">
                       A one stop destination of aquatic talents. Our students
                       went to domestic as well as State competition.
                     </p>
