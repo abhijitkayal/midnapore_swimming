@@ -148,13 +148,13 @@ export default function Navbar() {
       <nav className="flex items-center justify-between px-4 sm:px-8 md:px-20 md:py-1 py-1 sm:py-4 text-white">
         
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img
             src={Logo}
             alt="Logo"
             className="md:w-20 md:h-20 w-15 h-15 sm:w-10 sm:h-10 rounded-full"
           />
-        </div>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
