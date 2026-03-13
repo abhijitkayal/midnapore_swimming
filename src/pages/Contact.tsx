@@ -230,7 +230,6 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      const apiUrl = import.meta.env.VITE_BACKEND_URL || "";
       await axios.post("https://midnapore-swimming-nine.vercel.app/api/send-email", form);
 
       alert("Message sent successfully!");

@@ -21,8 +21,7 @@
 
 // export default NoticeBoard;
 
-import { FileText } from "lucide-react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 // List of PDFs in public folder
 const pdfList = [
