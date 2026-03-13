@@ -91,7 +91,7 @@ app.post("/api/send-email", async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV !== "production") {
+if (!process.env.VERCEL && !process.env.NETLIFY) {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
     console.log(`Backend running on http://localhost:${PORT}`);
