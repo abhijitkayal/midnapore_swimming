@@ -230,16 +230,19 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      // const apiUrl = (import.meta.env.VITE_BACKEND_URL as string | undefined)?.trim();
-      // if (!apiUrl) {
-      //   alert("Missing VITE_BACKEND_URL in client .env file");
-      //   return;
-      // }
+      const rawApiUrl = (import.meta.env.VITE_BACKEND_URL as string | undefined)?.trim();
+      if (!rawApiUrl) {
+        alert("Missing VITE_BACKEND_URL in client .env file");
+        return;
+      }
 
-      await axios.post("http://localhost:5000/api/send-email", form);
+      const apiBaseUrl = rawApiUrl.startsWith("http://") || rawApiUrl.startsWith("https://")
+        ? rawApiUrl
+        : `https://${rawApiUrl}`;
+
+      await axios.post(`${apiBaseUrl.replace(/\/$/, "")}/api/send-email`, form);
 
       alert("Message sent successfully!");
-      // console.log("apiUrl", apiUrl);
 
       setForm({
         name: "",

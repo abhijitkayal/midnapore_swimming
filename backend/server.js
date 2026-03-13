@@ -4,12 +4,23 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 
 const app = express();
+app.set("trust proxy", true);
+
+const configuredOrigins = (process.env.FRONTEND_URL || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+const vercelFrontendUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : undefined;
 
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:3000",
-  process.env.FRONTEND_URL,
+  ...configuredOrigins,
+  vercelFrontendUrl,
 ].filter(Boolean);
 
 app.use(
@@ -37,6 +48,13 @@ app.get("/", (_req, res) => {
 
 app.get("/api", (_req, res) => {
   res.status(200).json({ message: "API is working" });
+});
+
+app.get("/api/health", (_req, res) => {
+  res.status(200).json({
+    success: true,
+    environment: process.env.VERCEL ? "vercel" : "local",
+  });
 });
 
 app.post("/api/send-email", async (req, res) => {
@@ -88,8 +106,25 @@ app.post("/api/send-email", async (req, res) => {
     return res.status(200).json({ success: true, message: "Email sent successfully" });
   } catch (error) {
     console.error("Send email error:", error);
-    return res.status(500).json({ success: false, error: "Failed to send email" });
+    return res.status(500).json({
+      success: false,
+      error: process.env.NODE_ENV === "production"
+        ? "Failed to send email"
+        : error instanceof Error
+          ? error.message
+          : "Failed to send email",
+    });
   }
+});
+
+app.use((error, _req, res, _next) => {
+  console.error("Server error:", error);
+
+  if (error?.message === "Not allowed by CORS") {
+    return res.status(403).json({ success: false, error: error.message });
+  }
+
+  return res.status(500).json({ success: false, error: "Internal server error" });
 });
 
 if (!process.env.VERCEL && !process.env.NETLIFY) {
