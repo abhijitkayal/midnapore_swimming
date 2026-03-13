@@ -230,8 +230,8 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      const apiUrl = import.meta.env.VITE_BACKEND_URL || "https://beamish-lily-cf4054.netlify.app";
-      await axios.post(`${apiUrl}/.netlify/functions/send-email`, form);
+      const apiUrl = import.meta.env.VITE_BACKEND_URL || "";
+      await axios.post(`${apiUrl}/api/send-email`, form);
 
       alert("Message sent successfully!");
 
